@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ultra-black",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "const h=require('http'),f=require('fs'),p=require('path');const t={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.svg':'image/svg+xml'};h.createServer((q,r)=>{let u=decodeURIComponent(q.url.split('?')[0]).replace(/^\\/subpasta(?=\\/)/,'');if(u.endsWith('/'))u+='index.html';const a=p.join(process.cwd(),u);f.readFile(a,(e,d)=>{if(e){r.writeHead(404);r.end('404');return}r.writeHead(200,{'Content-Type':t[p.extname(a)]||'application/octet-stream','Cache-Control':'no-store'});r.end(d)})}).listen(4173)"
+      ],
+      "port": 4173
+    }
+  ]
+}

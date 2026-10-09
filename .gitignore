@@ -1,0 +1,6 @@
+# Arquivos compactados
+*.zip
+*.ZIP
+
+# Plano interno da campanha (confidencial, não publicar)
+*.pdf
