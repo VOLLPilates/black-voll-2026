@@ -7,7 +7,7 @@ var CONFIG = {
   live: "2026-11-11T00:00:00-03:00", // topo vira o player
   pos: "2026-11-12T00:00:00-03:00", // depois da live, até o fim da campanha
   inicioLive: "2026-11-11T20:00:00-03:00", // alvo do contador
-  videoId: "04YJdRljU4k",
+  videoId: "", // LIVE-PENDENTE: ID da live agendada no YouTube da VOLL
 };
 
 (function () {
@@ -62,7 +62,7 @@ var CONFIG = {
   // O iframe só entra na página nas fases live e pos, para não pesar as outras.
   function player() {
     var alvo = document.querySelector("[data-player]");
-    if (!alvo || alvo.getAttribute("data-pronto")) return;
+    if (!alvo || !CONFIG.videoId || alvo.getAttribute("data-pronto")) return;
     var iframe = document.createElement("iframe");
     iframe.src = "https://www.youtube-nocookie.com/embed/" + CONFIG.videoId;
     iframe.title = "Live Última Chamada Ultra Black VOLL";

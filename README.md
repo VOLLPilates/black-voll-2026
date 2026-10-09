@@ -41,6 +41,10 @@ Cada item está marcado no código com o comentário indicado.
   - VOLL+
   - Franquia VOLL
   - Regulamento dos sorteios (na seção de sorteios e no rodapé)
+- `LIVE-PENDENTE`: link da live de 11/11 agendada no YouTube da VOLL. O link que constava no plano apontava para um vídeo de terceiros e foi removido. Quando existir:
+  - preencher `videoId` em `assets/js/main.js` (sem ele, o player mostra só um aviso);
+  - recolocar o botão "Ativar lembrete da live" no topo e o link do YouTube no rodapé;
+  - atualizar a `url` do evento no JSON-LD do `<head>`.
 - `FOTO-PENDENTE`: duas fotos, hoje com espaço reservado:
   - `formacao_presencial_ultra_black_voll.webp`, proporção 5:4
   - `formacao_online_ultra_black_voll.webp`, proporção 16:10
