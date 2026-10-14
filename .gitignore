@@ -4,3 +4,8 @@
 
 # Plano interno da campanha (confidencial, não publicar)
 *.pdf
+
+# Materiais brutos enviados pela campanha (as versões usadas no site estão em assets/images)
+temporario/
+*.psd
+*.ai

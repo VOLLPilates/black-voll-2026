@@ -47,6 +47,7 @@ h3 {
   --card: #101010;
   --caixa: #0a0a0a;
   --ouro: #d9b66c;
+  --dourado: #d9b66c; /* fixo: elemento comum da campanha, não muda por produto */
   --ouro-claro: #f1d896;
   --ouro-fundo: #15120b;
   --texto: #f4f1ea;
@@ -58,6 +59,9 @@ h3 {
   --borda-ouro: rgba(217, 182, 108, 0.5);
   --vermelho: #c8382b;
   --grad-ouro: linear-gradient(160deg, #1c170c 0%, #0d0d0d 70%);
+  --btn: #00c3ba;
+  --btn-claro: #4fdcd5;
+  --faixa: #ff4b4b;
   --fonte-titulo: "Archivo", sans-serif;
   --fonte-texto: "Manrope", sans-serif;
   --largura: 1200px;
@@ -72,7 +76,10 @@ body {
   font-family: var(--fonte-texto);
   font-size: 16px;
   line-height: 1.5;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip, não hidden: hidden quebraria a faixa sticky */
+}
+[id] {
+  scroll-margin-top: 84px; /* âncoras não ficam sob a faixa fixa */
 }
 a:focus-visible {
   outline: 2px solid var(--ouro-claro);
@@ -90,19 +97,22 @@ strong {
 .pular:focus {
   left: 12px;
   top: 12px;
-  z-index: 10;
+  z-index: 30;
   background: var(--ouro);
   color: var(--caixa);
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 800;
 }
+/* Tudo que é clicável usa a cor dos botões, nunca o dourado da campanha. */
 .link {
-  color: var(--ouro);
+  color: var(--btn);
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .link:hover {
-  color: var(--ouro-claro);
+  color: var(--btn-claro);
 }
 
 /* ---------- Fases (ver assets/js/main.js) ---------- */
@@ -163,7 +173,6 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 .g2s,
 .g3,
 .g4,
-.premios,
 .passos,
 .hero,
 .livegrid {
@@ -184,9 +193,6 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 }
 .g4 {
   gap: 12px;
-}
-.premios {
-  gap: 16px;
 }
 .hero {
   gap: 40px;
@@ -254,10 +260,9 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   background: var(--ouro);
   flex-shrink: 0;
 }
-.h1 {
-  font-size: 60px;
-  line-height: 0.86;
+.h1-logo {
   margin-top: 28px;
+  max-width: 480px;
 }
 .h2 {
   font-size: 36px;
@@ -277,7 +282,7 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   max-width: 820px;
 }
 .ouro {
-  color: var(--ouro);
+  color: var(--dourado);
 }
 .lead {
   font-size: 19px;
@@ -313,35 +318,38 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   width: 100%;
   padding: 17px 30px;
   border-radius: 999px;
-  border: 1.5px solid var(--ouro);
-  background: var(--ouro);
+  border: 1.5px solid var(--btn);
+  background: var(--btn);
   color: var(--caixa);
   font-weight: 800;
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .btn:hover {
-  background: var(--ouro-claro);
-  border-color: var(--ouro-claro);
+  background: var(--btn-claro);
+  border-color: var(--btn-claro);
 }
 .btn svg {
   flex-shrink: 0;
 }
 .btn--contorno {
   background: transparent;
-  color: var(--ouro);
+  color: var(--btn);
 }
 .btn--contorno:hover {
-  background: var(--ouro);
-  border-color: var(--ouro);
+  background: var(--btn);
+  border-color: var(--btn);
   color: var(--caixa);
 }
 .btn--p {
   width: auto;
-  padding: 11px 20px;
-  font-size: 14px;
+  padding: 10px 14px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 .cta-row {
   display: flex;
@@ -355,16 +363,24 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 }
 
 /* ---------- Barra e menu ---------- */
+/* Faixa fixa, no modelo do espacovidapilates.com.br: só ela fica presa, o menu rola. */
 .barra {
-  background: var(--ouro);
-  color: var(--caixa);
-  font-size: 14px;
-  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--faixa);
+  color: var(--preto);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
   text-align: center;
 }
 .barra .wrap {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.junto {
+  white-space: nowrap;
 }
 .topo {
   border-bottom: 1px solid var(--linha);
@@ -378,13 +394,12 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   padding-bottom: 16px;
 }
 .marca {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+  display: block;
+  flex-shrink: 0;
 }
-.marca .disp {
-  font-size: 26px;
-  letter-spacing: 0.04em;
+.marca img {
+  width: auto;
+  height: 44px;
 }
 .menu {
   display: none;
@@ -502,10 +517,10 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 }
 .atalho::after {
   content: "→";
-  color: var(--ouro);
+  color: var(--btn);
 }
 .atalho:hover {
-  border-color: var(--borda-ouro);
+  border-color: var(--btn);
 }
 
 /* ---------- Cards ---------- */
@@ -560,10 +575,12 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   padding-top: 10px;
   font-size: 14px;
   font-weight: 700;
-  color: var(--ouro);
+  color: var(--btn);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 a.card:hover {
-  border-color: var(--borda-ouro);
+  border-color: var(--btn);
 }
 .forte {
   font-size: 17px;
@@ -706,32 +723,6 @@ a.card:hover {
 }
 
 /* ---------- Sorteios ---------- */
-.premio-principal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 48px;
-  padding: 36px;
-}
-.premio-principal p {
-  font-size: 20px;
-  color: var(--texto-2);
-}
-.premio-principal .disp {
-  font-size: clamp(32px, 17.5cqi, 88px);
-  color: var(--ouro);
-  white-space: nowrap;
-}
-.premio-num {
-  font-size: 40px;
-  color: var(--ouro);
-}
-.premios .forte {
-  margin-top: 10px;
-}
-.premios .card--linha .forte {
-  margin-top: 0;
-}
 .passo {
   display: flex;
   gap: 18px;
@@ -757,25 +748,93 @@ a.card:hover {
   font-size: 15px;
 }
 
-/* ---------- Espaço reservado de foto ---------- */
-.ph {
-  background: repeating-linear-gradient(135deg, #141414 0 14px, #101010 14px 28px);
-  border: 1px dashed #3a3630;
+/* ---------- Fotos ---------- */
+.foto {
   border-radius: 24px;
-  display: flex;
+  border: 1px solid var(--borda-ouro);
+  object-fit: cover;
+}
+.foto--4x5 {
+  aspect-ratio: 4 / 5;
+  object-position: center 70%;
+}
+.foto--3x2 {
+  aspect-ratio: 3 / 2;
+}
+
+/* ---------- Seções com imagem de fundo ---------- */
+.sec--fundo {
+  background-color: var(--preto);
+  background-position: center;
+  background-size: cover;
+}
+#vollplus {
+  background-image: url("../images/bg_vollplus_ultra_black_voll.webp");
+}
+#franquias {
+  background-image: url("../images/bg_franquias_ultra_black_voll.webp");
+}
+
+/* ---------- Cores por produto ----------
+   Cada produto reescreve as variáveis de destaque dentro da sua seção e do seu card no resumo.
+   Os títulos .ouro e os botões não mudam: são o que liga tudo à Ultra Black.
+   PROVISÓRIO: Online, VOLL+ e Franquias vêm dos sites de cada produto; trocar pelos logos oficiais. */
+.prod-presencial {
+  --prod: #1fcfff; /* logo EVP Presencial Ultra Black */
+  --prod-texto: #1fcfff;
+}
+.prod-online {
+  --prod: #00a19a; /* cursodepilatesonline.com.br */
+  --prod-texto: #2fc4bc;
+}
+.prod-vollplus {
+  --prod: #00f1d1; /* vollpilates.com.br/maratona-do-pilates */
+  --prod-texto: #00f1d1;
+}
+.prod-franquias {
+  --prod: #315d49; /* franquiadepilates.com.br */
+  --prod-texto: #a2d4bf;
+}
+[class*="prod-"] {
+  --ouro: var(--prod-texto);
+  --ouro-claro: var(--prod-texto);
+  --borda-ouro: color-mix(in srgb, var(--prod) 70%, transparent);
+  --ouro-fundo: color-mix(in srgb, var(--prod) 10%, var(--preto));
+  --grad-ouro: linear-gradient(160deg, color-mix(in srgb, var(--prod) 22%, var(--preto)) 0%, #0d0d0d 70%);
+}
+.card.card--ouro[class*="prod-"],
+[class*="prod-"] .card--ouro,
+#ofertas .card[class*="prod-"] {
+  box-shadow: inset 0 4px 0 var(--prod);
+}
+#ofertas .card[class*="prod-"] {
+  border-color: var(--borda-ouro);
+  background: var(--grad-ouro);
+}
+#ofertas a.card:hover {
+  border-color: var(--btn);
+}
+
+/* ---------- Selos dos sorteios ---------- */
+.selos-premios {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 16px;
   align-items: center;
+  justify-items: center;
+}
+.selos-premios li {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  color: var(--texto-4);
-  font-size: 14px;
-  font-weight: 600;
+}
+.selos-premios img {
+  width: 100%;
+  max-width: 260px;
+}
+.nota--centro {
   text-align: center;
-  padding: 24px;
-}
-.ph--5x4 {
-  aspect-ratio: 5 / 4;
-}
-.ph--16x10 {
-  aspect-ratio: 16 / 10;
+  margin-top: 20px;
 }
 
 /* ---------- Rodapé ---------- */
@@ -792,15 +851,12 @@ a.card:hover {
   gap: 24px;
   flex-wrap: wrap;
 }
-.rodape .disp {
-  font-size: 26px;
-  letter-spacing: 0.04em;
-}
-.rodape .cond {
-  letter-spacing: 0.3em;
+.rodape__logo {
+  width: auto;
+  height: 56px;
 }
 .rodape .nota {
-  margin-top: 10px;
+  margin-top: 14px;
 }
 .rodape__links {
   display: flex;
@@ -818,21 +874,25 @@ a.card:hover {
   .btn {
     width: auto;
   }
-  .g4,
-  .premios {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .g4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
-  .span2 {
-    grid-column: span 2;
+  .barra {
+    font-size: 17px;
+  }
+  .marca img {
+    height: 52px;
+  }
+  .btn--p {
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+  .h1-logo {
+    max-width: 560px;
   }
   .primeiro-mobile {
     order: 0;
-  }
-  .h1 {
-    font-size: 84px;
   }
   .h2 {
     font-size: 44px;
@@ -884,14 +944,14 @@ a.card:hover {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .g4,
-  .premios {
+  .selos-premios {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .premio-principal {
-    grid-row: span 2;
+  .barra {
+    font-size: 19px;
   }
-  .h1 {
-    font-size: 136px;
+  .foto--4x5 {
+    max-height: 620px;
   }
   .h2 {
     font-size: 58px;
