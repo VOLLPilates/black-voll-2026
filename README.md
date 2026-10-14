@@ -45,14 +45,14 @@ Para testar:
 Cada item está marcado no código com o comentário indicado.
 
 - `URL-PENDENTE`: endereço final da página, para `canonical`, `og:url` e `og:image` (bloco comentado no `<head>`). Depois de publicar, incluir a URL no sitemap do site hospedeiro.
-- `LINK-PENDENTE`: botão do VOLL+, que ainda aponta para `https://vollpilates.com.br/`. Os outros CTAs já têm as URLs finais e abrem em nova aba. O regulamento (`espacovidapilates.com.br/regulamento`) ainda não está no ar.
+- Regulamento dos sorteios: o link aponta para `espacovidapilates.com.br/regulamento`, que ainda não está no ar. Todos os CTAs já têm as URLs finais e abrem em nova aba.
 - `LIVE-PENDENTE`: link da live de 11/11 agendada no YouTube da VOLL. O link que constava no plano apontava para um vídeo de terceiros e foi removido. Quando existir:
   - preencher `videoId` em `assets/js/main.js` (sem ele, o player mostra só um aviso);
   - recolocar o botão "Ativar lembrete da live" no topo e o link do YouTube no rodapé;
   - atualizar a `url` do evento no JSON-LD do `<head>`.
 - Capa de compartilhamento: `capa_seo_ultra_black_voll_2026.webp`, 1200x630.
 - `TEXTO-PENDENTE`: condição de parcelamento da Formação Online e prêmio do sorteio de domingo do VOLL+.
-- Cores dos produtos: Formação Online, VOLL+ e Franquias usam cores provisórias tiradas dos sites de cada produto (bloco "Cores por produto" no CSS). Trocar pelas cores dos logos oficiais quando eles chegarem. A Presencial já usa a cor do logo oficial.
+- Cores dos produtos: a Presencial usa a cor do logo oficial. Formação Online, VOLL+ e Franquias usam as cores dos sites de cada produto (bloco "Cores por produto" no CSS); trocar se o time preferir as cores dos logos.
 - Fase `pos`: o wireframe não define a página depois da live. O comportamento atual é uma proposta e precisa de aprovação. A seção da Formação Presencial continua visível com "até 11/11".
 
 ## Imagens que ainda não estão em WebP

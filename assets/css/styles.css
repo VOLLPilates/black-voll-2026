@@ -778,7 +778,7 @@ a.card:hover {
 /* ---------- Cores por produto ----------
    Cada produto reescreve as variáveis de destaque dentro da sua seção e do seu card no resumo.
    Os títulos .ouro e os botões não mudam: são o que liga tudo à Ultra Black.
-   PROVISÓRIO: Online, VOLL+ e Franquias vêm dos sites de cada produto; trocar pelos logos oficiais. */
+   Presencial vem do logo oficial; Online, VOLL+ e Franquias vêm dos sites de cada produto. */
 .prod-presencial {
   --prod: #1fcfff; /* logo EVP Presencial Ultra Black */
   --prod-texto: #1fcfff;
@@ -788,8 +788,8 @@ a.card:hover {
   --prod-texto: #2fc4bc;
 }
 .prod-vollplus {
-  --prod: #00f1d1; /* vollpilates.com.br/maratona-do-pilates */
-  --prod-texto: #00f1d1;
+  --prod: #00f5d3; /* vollplus.com.br */
+  --prod-texto: #00f5d3;
 }
 .prod-franquias {
   --prod: #315d49; /* franquiadepilates.com.br */
