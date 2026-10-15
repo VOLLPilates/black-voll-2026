@@ -7,7 +7,7 @@ var CONFIG = {
   live: "2026-11-11T00:00:00-03:00", // topo vira o player
   pos: "2026-11-12T00:00:00-03:00", // depois da live, até o fim da campanha
   inicioLive: "2026-11-11T20:00:00-03:00", // alvo do contador
-  videoId: "", // LIVE-PENDENTE: ID da live agendada no YouTube da VOLL
+  videoId: "LtufBHAe5Gs", // live Última Chamada no YouTube da VOLL
 };
 
 (function () {
@@ -59,24 +59,32 @@ var CONFIG = {
     });
   }
 
-  // O iframe só entra na página nas fases live e pos, para não pesar as outras.
+  // Thumb com play em todo [data-player] (topo antes da live e topo da live); o YouTube só carrega no clique.
   function player() {
-    var alvo = document.querySelector("[data-player]");
-    if (!alvo || !CONFIG.videoId || alvo.getAttribute("data-pronto")) return;
-    var iframe = document.createElement("iframe");
-    iframe.src = "https://www.youtube-nocookie.com/embed/" + CONFIG.videoId;
-    iframe.title = "Live Última Chamada Ultra Black VOLL";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-    iframe.allowFullscreen = true;
-    alvo.textContent = "";
-    alvo.appendChild(iframe);
+    if (CONFIG.videoId) document.querySelectorAll("[data-player]:not([data-pronto])").forEach(montar);
+  }
+
+  function montar(alvo) {
+    alvo.innerHTML =
+      '<img src="assets/images/thumb_live_ultra_black_voll.webp" width="1280" height="720" alt="" />' +
+      '<button class="play" type="button" aria-label="Assistir à live Última Chamada">' +
+      '<svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg></button>';
+    alvo.querySelector(".play").addEventListener("click", function () {
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + CONFIG.videoId + "?autoplay=1";
+      iframe.title = "Live Última Chamada Ultra Black VOLL";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      alvo.textContent = "";
+      alvo.appendChild(iframe);
+    });
     alvo.setAttribute("data-pronto", "1");
   }
 
   function atualizar() {
     var e = aplicar();
     contador(e.falta);
-    if (e.fase === "live" || e.fase === "pos") player();
+    player();
   }
 
   aplicar();

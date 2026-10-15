@@ -171,7 +171,6 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 /* ---------- Grids ---------- */
 .g2,
 .g2s,
-.g3,
 .g4,
 .passos,
 .hero,
@@ -187,7 +186,6 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   align-items: end;
 }
 .g2s,
-.g3,
 .passos {
   gap: 20px;
 }
@@ -395,11 +393,12 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 }
 .marca {
   display: block;
-  flex-shrink: 0;
+  flex: 0 1 260px;
+  min-width: 0;
 }
-.marca img {
-  width: auto;
-  height: 44px;
+/* No celular o logo horizontal precisa da largura toda; o CTA do topo fica no hero. */
+.topo .btn--p {
+  display: none;
 }
 .menu {
   display: none;
@@ -431,6 +430,11 @@ html[data-aovivo="sim"] [data-quando="antes"] {
 .hero-live > .wrap {
   padding-top: 56px;
   padding-bottom: 80px;
+}
+.hero__lado {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .contagem {
   display: grid;
@@ -491,7 +495,40 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   padding: 24px;
   text-align: center;
 }
+.player[data-pronto] img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.play {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--btn);
+  color: var(--caixa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, background 0.2s;
+}
+.play svg {
+  margin-left: 4px;
+}
+.play:hover {
+  background: var(--btn-claro);
+  transform: scale(1.08);
+}
+.play:focus-visible {
+  outline: 3px solid var(--texto);
+  outline-offset: 3px;
+}
 .player[data-pronto] {
+  position: relative;
   padding: 0;
 }
 .player iframe {
@@ -593,26 +630,6 @@ a.card:hover {
   border-radius: 14px;
   padding: 16px;
 }
-.cupons {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 20px;
-}
-.cupons .caixa {
-  padding: 14px 12px;
-}
-.cupons .disp {
-  font-size: 36px;
-  color: var(--ouro);
-}
-.cupons p {
-  font-size: 13px;
-  hyphens: auto;
-  color: var(--texto-2);
-  margin-top: 2px;
-  line-height: 1.4;
-}
 .aviso {
   display: flex;
   gap: 12px;
@@ -685,6 +702,10 @@ a.card:hover {
 }
 .preco small {
   font-size: 0.34em;
+}
+.preco-menor--colado {
+  margin-top: 4px;
+  padding-top: 0;
 }
 .preco-menor {
   font-size: clamp(20px, 15cqi, 30px);
@@ -769,10 +790,10 @@ a.card:hover {
   background-size: cover;
 }
 #vollplus {
-  background-image: url("../images/bg_vollplus_ultra_black_voll.webp");
+  background-image: linear-gradient(var(--tinta), var(--tinta)), url("../images/bg_vollplus_ultra_black_voll.webp");
 }
 #franquias {
-  background-image: url("../images/bg_franquias_ultra_black_voll.webp");
+  background-image: linear-gradient(var(--tinta), var(--tinta)), url("../images/bg_franquias_ultra_black_voll.webp");
 }
 
 /* ---------- Cores por produto ----------
@@ -813,6 +834,16 @@ a.card:hover {
 }
 #ofertas a.card:hover {
   border-color: var(--btn);
+}
+/* Cada bloco com o próprio tom e uma linha na cor do produto, para separar bem as seções. */
+.sec[class*="prod-"],
+#sorteios {
+  --tinta: color-mix(in srgb, var(--prod) 9%, transparent);
+  background-color: color-mix(in srgb, var(--prod) 9%, var(--preto));
+  border-top: 3px solid var(--prod);
+}
+#sorteios {
+  --prod: var(--dourado);
 }
 
 /* ---------- Selos dos sorteios ---------- */
@@ -881,8 +912,11 @@ a.card:hover {
   .barra {
     font-size: 17px;
   }
-  .marca img {
-    height: 52px;
+  .marca {
+    flex-basis: 300px;
+  }
+  .topo .btn--p {
+    display: inline-flex;
   }
   .btn--p {
     padding: 11px 20px;
@@ -924,12 +958,13 @@ a.card:hover {
 
 /* ---------- A partir de 961px ---------- */
 @media (min-width: 961px) {
-  .menu {
-    display: flex;
-  }
   .hero {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
     gap: 56px;
+  }
+  /* Desktop: cronômetro e thumb, nessa ordem, alinhados pelo topo. */
+  .hero__lado {
+    align-self: start;
   }
   .livegrid {
     grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
@@ -938,7 +973,6 @@ a.card:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 56px;
   }
-  .g3,
   .passos,
   .lista-check {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -955,6 +989,22 @@ a.card:hover {
   }
   .h2 {
     font-size: 58px;
+  }
+}
+
+/* Menu só onde cabe com os nomes completos dos produtos. */
+@media (min-width: 1200px) {
+  .menu {
+    display: flex;
+    gap: 22px;
+  }
+  .menu a {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  /* Com o menu completo, o botão "Ver ofertas" do topo sai para caber em uma linha. */
+  .topo .btn--p {
+    display: none;
   }
 }
 
