@@ -13,7 +13,7 @@ Todos os caminhos são relativos, então a página funciona em qualquer subpasta
 
 ## Live
 
-Vídeo: https://www.youtube.com/watch?v=LtufBHAe5Gs (`videoId` em `assets/js/main.js`). Antes da live, a thumb com play fica na coluna do cronômetro (logo abaixo dele); no dia da live, ocupa o topo. O mesmo link está no botão "Ativar lembrete da live", no rodapé e no JSON-LD.
+Vídeo: https://www.youtube.com/watch?v=LtufBHAe5Gs (`videoId` em `assets/js/main.js`). Antes da live, o card com o cronômetro e a thumb com play ficam lado a lado na segunda seção (empilhados no celular); no dia da live, a thumb ocupa o topo. O mesmo link está no botão "Ativar lembrete da live", no rodapé e no JSON-LD.
 
 ## Tags
 
@@ -24,7 +24,8 @@ GTM (GTM-MH7D35D), GA4 (G-9S2K7N5XCL) e os dois Meta Pixels do domínio vollpila
 - Botões: `#00c3ba`, em caixa alta.
 - Faixa da live: fixa no topo, fundo `#ff4b4b` e texto preto.
 - Dourado (`--dourado`): títulos, para ligar todos os produtos à Ultra Black.
-- Cada produto tem a sua cor de destaque (`.prod-*` no CSS).
+- Cada produto tem a sua cor de destaque (`.prod-*` no CSS). Pilates Clássico: verde (#2e8a6c), da identidade do curso.
+- Logos oficiais acima do rótulo de cada produto (`.prod-logo`). Os da Formação Online e de Franquias têm texto escuro e ficam sobre uma placa branca (`.prod-logo--placa`).
 
 ## Fases
 
@@ -50,7 +51,6 @@ Cada item está marcado no código com o comentário indicado.
 
 - `URL-PENDENTE`: endereço final da página, para `canonical`, `og:url` e `og:image` (bloco comentado no `<head>`). Depois de publicar, incluir a URL no sitemap do site hospedeiro.
 - Regulamento dos sorteios: o link aponta para `espacovidapilates.com.br/regulamento`, que ainda não está no ar. Todos os CTAs já têm as URLs finais e abrem em nova aba.
-- Centralização da primeira seção: fica para depois.
 - Capa de compartilhamento: `capa_seo_ultra_black_voll_2026.webp`, 1200x630.
 - `TEXTO-PENDENTE`: condição de parcelamento da Formação em Pilates Online e prêmio do sorteio de domingo do VOLL+.
 - Cores dos produtos: a Presencial usa a cor do logo oficial. Formação Online, VOLL+ e Franquias usam as cores dos sites de cada produto (bloco "Cores por produto" no CSS); trocar se o time preferir as cores dos logos.

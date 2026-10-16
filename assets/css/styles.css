@@ -431,10 +431,30 @@ html[data-aovivo="sim"] [data-quando="antes"] {
   padding-top: 56px;
   padding-bottom: 80px;
 }
-.hero__lado {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.hero--centro {
+  text-align: center;
+  justify-items: center;
+}
+.hero--centro > div {
+  max-width: 860px;
+}
+.hero--centro .h1-logo img,
+.hero--centro .lead--hero {
+  margin-inline: auto;
+}
+.hero--centro .h1-logo {
+  margin-inline: auto;
+}
+.hero--centro .cond--traco,
+.hero--centro .cta-row {
+  justify-content: center;
+}
+/* Segunda seção: card da live e thumb empilhados no celular, lado a lado no desktop */
+.live-topo__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
 }
 .contagem {
   display: grid;
@@ -812,6 +832,10 @@ a.card:hover {
   --prod: #00f5d3; /* vollplus.com.br */
   --prod-texto: #00f5d3;
 }
+.prod-classico {
+  --prod: #2e8a6c; /* verde do Pilates Clássico (site: #03251d), clareado para ler no preto */
+  --prod-texto: #7fcfb0;
+}
 .prod-franquias {
   --prod: #315d49; /* franquiadepilates.com.br */
   --prod-texto: #a2d4bf;
@@ -837,13 +861,45 @@ a.card:hover {
 }
 /* Cada bloco com o próprio tom e uma linha na cor do produto, para separar bem as seções. */
 .sec[class*="prod-"],
+.live-topo,
 #sorteios {
   --tinta: color-mix(in srgb, var(--prod) 9%, transparent);
   background-color: color-mix(in srgb, var(--prod) 9%, var(--preto));
   border-top: 3px solid var(--prod);
 }
+.live-topo,
 #sorteios {
   --prod: var(--dourado);
+}
+
+/* Logo oficial acima do rótulo de cada produto */
+.prod-logo {
+  width: auto;
+  height: 80px;
+  max-width: 100%;
+  margin-bottom: 18px;
+  object-fit: contain;
+}
+.prod-logo--alto {
+  height: 120px;
+}
+/* Logos com texto escuro ganham uma placa clara para ler no fundo preto */
+.prod-logo--placa {
+  height: 96px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 14px;
+}
+/* Com 5 cards na linha, o destaque acompanha a largura do card */
+.g5 .card__destaque {
+  font-size: clamp(20px, 15cqi, 28px);
+}
+/* "R$ 700 OFF" é mais longo que os outros preços */
+#classico .preco {
+  font-size: clamp(22px, 13cqi, 66px);
+}
+.foto--larga {
+  aspect-ratio: 1600 / 518;
 }
 
 /* ---------- Selos dos sorteios ---------- */
@@ -958,13 +1014,8 @@ a.card:hover {
 
 /* ---------- A partir de 961px ---------- */
 @media (min-width: 961px) {
-  .hero {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: 56px;
-  }
-  /* Desktop: cronômetro e thumb, nessa ordem, alinhados pelo topo. */
-  .hero__lado {
-    align-self: start;
+  .live-topo__grid {
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
   }
   .livegrid {
     grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
@@ -981,6 +1032,9 @@ a.card:hover {
   .selos-premios {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+  .g5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .barra {
     font-size: 19px;
   }
@@ -994,6 +1048,9 @@ a.card:hover {
 
 /* Menu só onde cabe com os nomes completos dos produtos. */
 @media (min-width: 1200px) {
+  .g5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
   .menu {
     display: flex;
     gap: 22px;
