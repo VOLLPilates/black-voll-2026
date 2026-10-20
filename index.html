@@ -117,431 +117,396 @@
 
     <a class="pular" href="#ofertas">Pular para as ofertas</a>
 
-    <!-- BARRA DE CONTAGEM: fixa no topo durante a rolagem -->
-    <div class="barra" id="topo" role="region" aria-label="Aviso da live">
-      <div class="wrap">
-        <span data-fases="antecipa maratona"><span class="junto">Live Última Chamada</span> · <span class="junto">11/11 às 20h</span> · <span class="junto">faltam <span data-cd="d">--</span> dias</span></span>
-        <span data-fases="live">
-          <span data-quando="antes">É hoje · Live Última Chamada às 20h · Sorteios de R$ 7 mil em PIX, Pós-Graduação e Evento VOLL 2027</span>
-          <span data-quando="aovivo">● AO VIVO AGORA · Sorteios de R$ 7 mil em PIX, Pós-Graduação e Evento VOLL 2027</span>
-        </span>
-        <span data-fases="pos">Ultra Black VOLL · ofertas válidas até 30/11</span>
-      </div>
+    <!-- BARRA E CHIPS: um bloco só, fixo no topo durante a rolagem -->
+    <div class="fixo">
+    <div class="barra" role="region" aria-label="Aviso da campanha">
+      <span data-fases="antecipa maratona">Ultra Black no ar · ofertas valendo agora · até 30/11</span>
+      <span data-fases="live"><span class="vivo"></span>Hoje às 20h: sorteios ao vivo · ofertas valendo agora</span>
+      <span data-fases="pos">Ultra Black no ar · ofertas valendo até 30/11</span>
     </div>
 
-    <!-- MENU -->
-    <header class="topo">
+    <!-- CHIPS: atalhos fixos para as cinco ofertas e os prêmios -->
+    <nav class="chips" aria-label="As cinco ofertas">
       <div class="wrap">
-        <a class="marca" href="#topo" aria-label="VOLL Pilates Group, início">
-          <img src="assets/images/logo_voll_horizontal.webp" width="1200" height="57" alt="" />
-        </a>
-        <nav class="menu" aria-label="Seções">
-          <a href="#sorteios" data-fases="antecipa maratona live">Sorteios</a>
-          <a href="#presencial">Formação em Pilates Presencial</a>
-          <a href="#online">Formação em Pilates Online</a>
-          <a href="#classico">Formação de Pilates Clássico</a>
-          <a href="#vollplus">VOLL+</a>
-          <a href="#franquias">Franquias</a>
-        </nav>
-        <a class="btn btn--contorno btn--p" href="#ofertas">Ver ofertas</a>
+        <a class="chip" href="#presencial" style="--cor: var(--c1)"><i>1</i>Presencial</a>
+        <a class="chip" href="#online" style="--cor: var(--c2)"><i>2</i>Online</a>
+        <a class="chip" href="#classico" style="--cor: var(--c3)"><i>3</i>Clássico</a>
+        <a class="chip" href="#vollplus" style="--cor: var(--c4)"><i>4</i>VOLL+</a>
+        <a class="chip" href="#franquias" style="--cor: var(--c5)"><i>5</i>Franquias</a>
+        <a class="chip" href="#sorteios" style="--cor: var(--ouro)"><i>★</i>Prêmios</a>
       </div>
-    </header>
+    </nav>
+    </div>
 
     <main>
-      <!-- HERO: ANTES DA LIVE -->
-      <section class="hero-sec" data-fases="antecipa maratona">
-        <div class="brilho brilho--topo"></div>
+      <!-- HERO -->
+      <section class="hero" id="topo">
         <div class="wrap">
-          <div class="hero hero--centro">
-            <div>
-              <p class="cond cond--traco">Antecipa Black · 13/10 a 30/11</p>
-              <h1 class="h1-logo">
-                <img src="assets/images/logo_ultra_black_voll.svg" width="1126" height="610" alt="Ultra Black VOLL Pilates Group" />
-              </h1>
-              <p class="lead lead--hero">
-                As condições mais fortes do ano para você se formar, se atualizar ou abrir o seu Studio VOLL. E quem
-                comprar durante a campanha concorre a
-                <b>R$ 7 mil em PIX, uma Pós-Graduação e um Evento VOLL 2027</b> na live de 11/11.
-              </p>
-              <div class="cta-row">
-                <a class="btn" href="#ofertas"
-                  >Ver as ofertas
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" /></svg
-                ></a>
-                <a class="btn btn--contorno" href="https://www.youtube.com/watch?v=LtufBHAe5Gs" target="_blank" rel="noopener noreferrer">Ativar lembrete da live</a>
-              </div>
-            </div>
+          <img class="marca-voll" src="assets/images/logo_voll_horizontal.webp" width="1200" height="57" alt="VOLL Pilates Group" />
+          <span class="no-ar">Já começou</span>
+          <img class="logo-ub" src="assets/images/logo_ultra_black_voll.svg" width="1126" height="610" alt="Ultra Black VOLL" />
+          <h1>As condições mais fortes do ano já estão valendo.</h1>
+          <p class="lead">Cinco ofertas, uma para cada momento da sua carreira no Pilates. Não precisa esperar nenhuma data: você escolhe a sua e garante agora.</p>
+          <div class="ctas">
+            <a class="btn" href="#ofertas">Ver as 5 ofertas ↓</a>
           </div>
+          <p class="data"><span><b>Ofertas</b> válidas até 30/11</span><span><b>Quem compra</b> concorre a prêmios ao vivo em 11/11</span></p>
         </div>
       </section>
 
-      <!-- LIVE: cronômetro e thumb lado a lado (antes do dia da live) -->
-      <section class="sec live-topo" data-fases="antecipa maratona" aria-label="Live Última Chamada">
+      <!-- LIVE: segunda seção, logo abaixo do topo, em todas as fases -->
+      <section class="sec" id="live">
         <div class="wrap">
-          <div class="live-topo__grid">
-            <div class="card card--ouro card--g">
-              <p class="cond cond--p">Live Última Chamada</p>
-              <p class="card__titulo" style="margin-top: 10px">Quarta, 11 de novembro · 20h</p>
-              <p class="sub">Ao vivo no YouTube da VOLL</p>
-              <div class="contagem" aria-hidden="true">
-                <div class="caixa"><span class="disp" data-cd="d">--</span><small>dias</small></div>
-                <div class="caixa"><span class="disp" data-cd="h">--</span><small>horas</small></div>
-                <div class="caixa"><span class="disp" data-cd="m">--</span><small>min</small></div>
-              </div>
-              <div class="divisor"></div>
-              <p class="sub" style="font-size: 15px; color: var(--texto-2)">Sorteios ao vivo para quem comprar um produto participante da Ultra Black.</p>
-              <a class="link" href="#sorteios" style="display: inline-block; margin-top: 12px; font-size: 15px">Ver prêmios →</a>
-            </div>
-            <div class="player" data-player></div>
+          <div class="live-tags" data-fases="live pos">
+            <span class="tag-vivo" data-fases="live" data-quando="aovivo">Ao vivo agora</span>
+            <span class="tag-vivo tag-vivo--neutra" data-fases="live" data-quando="antes">Hoje às 20h</span>
+            <span class="tag-vivo tag-vivo--neutra" data-fases="pos">Gravação da live</span>
           </div>
-        </div>
-      </section>
-
-      <!-- HERO: DIA DA LIVE E PÓS-LIVE -->
-      <section class="hero-sec hero-live" data-fases="live pos">
-        <div class="wrap">
-          <div class="live-tags">
-            <span class="tag-vivo" data-fases="live" data-quando="aovivo">● AO VIVO</span>
-            <span class="tag-vivo tag-vivo--neutra" data-fases="live" data-quando="antes">HOJE ÀS 20H</span>
-            <span class="tag-vivo tag-vivo--neutra" data-fases="pos">GRAVAÇÃO DA LIVE</span>
-            <span class="cond">Última Chamada Ultra Black · 11/11 · 20h</span>
-          </div>
-          <p class="disp h2 h2--live" role="heading" aria-level="1">Última Chamada <span class="ouro">Ultra Black VOLL</span></p>
-          <div class="livegrid">
-            <div class="player" data-player>
-              <p>A live será exibida aqui em 11/11, às 20h.</p>
-            </div>
-            <div class="atalhos">
-              <p class="cond cond--p cond--cinza" data-fases="live">Garanta durante a live</p>
-              <p class="cond cond--p cond--cinza" data-fases="pos">Ofertas até 30/11</p>
-              <a class="atalho" href="#presencial">Formação em Pilates Presencial</a>
-              <a class="atalho" href="#online">Formação em Pilates Online · R$ 1.090</a>
-              <a class="atalho" href="#classico">Formação de Pilates Clássico · R$ 700 OFF</a>
-              <a class="atalho" href="#vollplus">VOLL+ · R$ 109/mês</a>
-              <a class="atalho" href="#franquias">Franquias · 50% off</a>
-              <div class="aviso" data-fases="live" style="display: block; padding: 20px; margin-top: 4px">
-                <p class="cond cond--pp">Sorteios de hoje</p>
-                <p style="margin-top: 8px; line-height: 1.6">1 PIX de R$ 5.000 · 2 PIX de R$ 1.000 · 1 Pós-Graduação · 1 Evento VOLL 2027</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESUMO DAS OFERTAS -->
-      <section id="ofertas" class="sec sec--alt sec--resumo">
-        <div class="wrap">
-          <p class="cond">Escolha a sua oferta</p>
-          <h2 class="disp h2 h2--resumo">Cinco ofertas. Uma Ultra Black.</h2>
-          <div class="g4 g5">
-            <a class="card card--col prod-presencial" href="#presencial">
-              <span class="cond cond--pp cond--cinza">Até 11/11</span>
-              <span class="card__titulo">Formação em Pilates Presencial</span>
-              <span class="disp card__destaque">Condição exclusiva + bônus</span>
-              <span class="card__pe">Ver detalhes ↓</span>
-            </a>
-            <a class="card card--col prod-online" href="#online">
-              <span class="cond cond--pp cond--cinza">19/10 a 30/11</span>
-              <span class="card__titulo">Formação em Pilates Online</span>
-              <span class="disp card__destaque">R$ 1.090</span>
-              <span class="sub">R$ 700 de desconto</span>
-              <span class="card__pe">Ver detalhes ↓</span>
-            </a>
-            <a class="card card--col prod-classico" href="#classico">
-              <span class="cond cond--pp cond--cinza">Até 11/11</span>
-              <span class="card__titulo">Formação de Pilates Clássico Presencial</span>
-              <span class="disp card__destaque">R$ 700 OFF</span>
-              <span class="sub">de desconto à vista</span>
-              <span class="card__pe">Ver detalhes ↓</span>
-            </a>
-            <a class="card card--col prod-vollplus" href="#vollplus">
-              <span class="cond cond--pp cond--cinza">A partir de 03/11</span>
-              <span class="card__titulo">VOLL+</span>
-              <span class="disp card__destaque" data-fases="antecipa">Revelada na Maratona</span>
-              <span class="disp card__destaque" data-fases="maratona live pos">R$ 109/mês</span>
-              <span class="card__pe">Ver detalhes ↓</span>
-            </a>
-            <a class="card card--col prod-franquias" href="#franquias">
-              <span class="cond cond--pp cond--cinza">19/10 a 30/11</span>
-              <span class="card__titulo">Franquias</span>
-              <span class="disp card__destaque">50% off</span>
-              <span class="sub">para abrir sua unidade</span>
-              <span class="card__pe">Ver detalhes ↓</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- SORTEIOS DA LIVE -->
-      <section id="sorteios" class="sec" data-fases="antecipa maratona live">
-        <div class="wrap">
-          <div class="g2 g2--base">
-            <div>
-              <p class="cond">Grande Sorteio Ultra Black</p>
-              <h2 class="disp h2">Comprou na Ultra Black, <span class="ouro">concorre.</span></h2>
-            </div>
-            <p class="lead">
-              Qualquer produto participante vale: Formação em Pilates Presencial, Formação em Pilates Online, Formação de Pilates Clássico Presencial, VOLL+, Franquias e outros
-              produtos da campanha. Os sorteios acontecem ao vivo, no YouTube, em 11/11 às 20h.
-            </p>
-          </div>
-          <!-- Selos neutros da campanha (wireframe_ultra-black_secao_selos_web.psd), na ordem do layout -->
-          <ul class="selos-premios mt-56">
-            <li><img src="assets/images/selo_pix_5mil.webp" width="367" height="365" loading="lazy" alt="1 PIX de R$ 5 mil" /></li>
-            <li><img src="assets/images/selo_pos_graduacao.webp" width="330" height="328" loading="lazy" alt="1 Pós-Graduação VOLL em Pilates para Patologias e Biomecânica Aplicada" /></li>
-            <li><img src="assets/images/selo_pix_1mil.webp" width="336" height="331" loading="lazy" alt="2 PIX de R$ 1 mil" /></li>
-            <li><img src="assets/images/selo_evento_voll_2027.webp" width="387" height="280" loading="lazy" alt="1 Evento VOLL 2027" /></li>
-          </ul>
-          <p class="nota nota--centro">O Evento VOLL 2027 é à escolha do ganhador.</p>
-          <ol class="passos mt-48">
-            <li class="passo">
-              <span class="disp passo__n passo__n--cheio">1</span>
-              <div>
-                <p class="forte">Compre um produto participante</p>
-                <p class="sub">Durante a Ultra Black, até a live de 11/11.</p>
-              </div>
-            </li>
-            <li class="passo">
-              <span class="disp passo__n">2</span>
-              <div>
-                <p class="forte">Receba seus cupons</p>
-                <p class="sub">Algumas formações dão mais cupons e mais chances.</p>
-              </div>
-            </li>
-            <li class="passo">
-              <span class="disp passo__n">3</span>
-              <div>
-                <p class="forte">Assista à live</p>
-                <p class="sub">Quarta, 11/11, às 20h, nesta mesma página.</p>
-              </div>
-            </li>
-          </ol>
-          <p class="nota" style="margin-top: 36px">Consulte o <a class="link" href="https://www.espacovidapilates.com.br/regulamento" target="_blank" rel="noopener noreferrer">regulamento dos sorteios</a>.</p>
-        </div>
-      </section>
-
-      <!-- FORMAÇÃO PRESENCIAL -->
-      <section id="presencial" class="sec sec--alt prod-presencial">
-        <div class="wrap">
-          <div class="g2">
-            <img class="foto foto--4x5" src="assets/images/formacao_presencial_ultra_black_voll.webp" width="1000" height="1250" loading="lazy" alt="Turma da Formação em Pilates Presencial VOLL segurando o livro Teoria e Prática" />
-            <div>
-              <img class="prod-logo" src="assets/images/logo_formacao_presencial.webp" width="480" height="268" loading="lazy" alt="Curso de Formação Completa em Pilates Presencial" />
-              <p class="cond">Formação em Pilates Presencial · até 11/11</p>
-              <h2 class="disp h2">Forme-se em Pilates <span class="ouro">na prática.</span></h2>
-              <p class="lead lead--mt">
-                Uma formação em mais de 140 cidades do Brasil, que acontece em apenas 4 dias (2 finais de semana) e é
-                pensada para quem quer mais clareza, segurança e consistência na utilização do Método Pilates.
-              </p>
-              <div class="aviso" style="margin-top: 24px">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D9B66C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2" /><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z" /></svg>
-                <p><b>Bônus em todas:</b> Combo VOLL Fisioterapia ou Combo VOLL Educação Física</p>
-              </div>
-            </div>
-          </div>
-          <div class="aviso aviso--tracejado mt-48">
-            <p><b>Sorteio do kit de equipamentos:</b> compras de 01/10 a 30/12/2026 · sorteio em janeiro de 2027.</p>
-          </div>
-          <div class="cta-row cta-row--centro">
-            <a class="btn" href="https://www.espacovidapilates.com.br" target="_blank" rel="noopener noreferrer"
-              >Saiba mais sobre a Formação em Pilates Presencial
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg
-            ></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- FORMAÇÃO ONLINE -->
-      <section id="online" class="sec prod-online">
-        <div class="wrap">
+          <p class="rotulo">Live Última Chamada · quarta, 11/11, às 20h</p>
+          <h2 class="disp">O último dia para <span class="ouro">concorrer ao vivo.</span></h2>
+          <p class="sub">A live não é o começo da Black. É o encerramento dos sorteios. Quem comprar até lá assiste ao sorteio ao vivo e ainda pode garantir a oferta durante a transmissão.</p>
           <div class="g2">
             <div>
-              <img class="prod-logo prod-logo--placa" src="assets/images/logo_formacao_online.webp" width="480" height="192" loading="lazy" alt="Formação Online Completa em Pilates VOLL" />
-              <p class="cond">Formação em Pilates Online · 19/10 a 30/11</p>
-              <h2 class="disp h2">Sua formação em Pilates, <span class="ouro">no seu ritmo.</span></h2>
-              <p class="lead lead--mt">A Formação em Pilates Online com R$ 700 de desconto e 28 cursos de bônus.</p>
-              <div class="card card--ouro card--g" style="margin-top: 32px">
-                <p class="de-por">de <s>R$ 1.790</s> por</p>
-                <p class="disp preco">R$ 1.090</p>
-                <div class="selos">
-                  <span class="selo selo--m">R$ 700 de desconto</span>
-                  <span class="selo selo--m selo--contorno">+ 28 cursos online de bônus</span>
-                </div>
-                <!-- TEXTO-PENDENTE: condição de parcelamento.
-                <p class="nota" style="margin-top: 14px">...</p>
-                -->
+              <div class="contagem" data-fases="antecipa maratona live" aria-label="Contagem para a live">
+                <div><b data-cd="d">--</b><small>dias</small></div>
+                <div><b data-cd="h">--</b><small>horas</small></div>
+                <div><b data-cd="m">--</b><small>min</small></div>
               </div>
+              <ol class="passos">
+                <li><i>1</i><div><p class="t">Compre uma das 5 ofertas</p><p class="d">Qualquer uma, até 11/11.</p></div></li>
+                <li><i>2</i><div><p class="t">Receba seus cupons</p><p class="d">Algumas formações dão mais cupons.</p></div></li>
+                <li><i>3</i><div><p class="t">Assista à live</p><p class="d">Quarta, 11/11, 20h, no YouTube.</p></div></li>
+              </ol>
             </div>
-            <div class="pilha primeiro-mobile">
-              <img class="foto foto--3x2" src="assets/images/formacao_online_ultra_black_voll.webp" width="1200" height="800" loading="lazy" alt="Aluna anotando enquanto assiste a uma aula da Formação em Pilates Online VOLL no notebook" />
-              <div class="card card--linha">
-                <span class="disp numero-g">10</span>
-                <div>
-                  <p class="forte">vagas na Formação em Pilates Presencial + kit de acessórios</p>
-                  <p class="sub">Sorteio exclusivo para quem comprar a Formação em Pilates Online de 01/10 a 30/11/2026 · sorteio em dezembro.</p>
-                </div>
+            <div class="live-video">
+              <div class="player" data-player>
+                <p>A live aparece aqui em 11/11, às 20h.</p>
               </div>
+              <p class="rotulo">YouTube · VOLL Pilates Group</p>
+              <a class="btn btn--linha" href="https://www.youtube.com/watch?v=LtufBHAe5Gs" target="_blank" rel="noopener noreferrer"
+                ><span data-fases="antecipa maratona">Ativar lembrete da live</span><span data-fases="live">Assistir agora</span><span data-fases="pos">Ver a gravação</span></a
+              >
             </div>
-          </div>
-          <div class="cta-row cta-row--centro" style="margin-top: 48px">
-            <a class="btn" href="https://cursodepilatesonline.com.br" target="_blank" rel="noopener noreferrer"
-              >Saiba mais sobre a Formação em Pilates Online
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg
-            ></a>
           </div>
         </div>
       </section>
 
-      <!-- FORMAÇÃO DE PILATES CLÁSSICO PRESENCIAL -->
-      <section id="classico" class="sec prod-classico">
+      <!-- ÍNDICE DAS 5 OFERTAS -->
+      <section class="sec" id="ofertas">
         <div class="wrap">
-          <img class="foto foto--larga" src="assets/images/formacao_classico_ultra_black_voll.webp" width="1600" height="518" loading="lazy" alt="Rodrigo Nanô e o conselho de especialistas da Formação de Pilates Clássico Presencial" />
-          <div class="g2 mt-48">
-            <div>
-              <img class="prod-logo prod-logo--alto" src="assets/images/logo_formacao_classico.webp" width="360" height="320" loading="lazy" alt="Pilates Clássico VOLL e Rodrigo Nanô" />
-              <p class="cond">Formação de Pilates Clássico Presencial · até 11/11</p>
-              <h2 class="disp h2">Domine o Método Clássico <span class="ouro">na origem.</span></h2>
-              <p class="lead lead--mt">A Formação presencial no Método Clássico com Rodrigo Nanô: 3 dias de prática, certificado de 20 horas (MEC, CREF e CREFITO) e as condições exclusivas da Black.</p>
-            </div>
-            <div class="card card--ouro card--g">
-              <p class="de-por">condição Ultra Black à vista</p>
-              <p class="disp preco">R$ 700 OFF</p>
-              <div class="selos">
-                <span class="selo selo--m">12x de R$ 199 no cartão</span>
-                <span class="selo selo--m selo--contorno">ou boleto: entrada R$ 100 + 12x R$ 199</span>
-              </div>
-            </div>
-          </div>
-          <div class="card card--g mt-20">
-            <div class="card__topo">
-              <p class="forte" style="font-size: 18px">Bônus da Black Clássico</p>
-              <span class="cond cond--p">até 11/11</span>
-            </div>
-            <ul class="lista-check">
-              <li><span><b>Gravação do Workshop</b> “Adaptação de aparelhos contemporâneos ao Método Clássico” + <b>PDF teórico</b> de acompanhamento</span></li>
-              <li><span><b>10 banners</b> do Rodrigo Nanô · <b>apenas para os 10 primeiros compradores</b></span></li>
-              <li><span><b>Mentoria</b> com Rodrigo Nanô · <b>só para quem comprar até 11/11</b></span></li>
-            </ul>
-          </div>
-          <div class="aviso aviso--tracejado mt-20">
-            <p><b>Entra no Grande Sorteio Ultra Black:</b> quem garantir a Formação até 11/11 concorre aos prêmios da live.</p>
-          </div>
-          <div class="cta-row cta-row--centro" style="margin-top: 48px">
-            <a class="btn" href="https://cursopilatesclassico.com.br" target="_blank" rel="noopener noreferrer"
-              >Saiba mais sobre a Formação de Pilates Clássico Presencial
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg
-            ></a>
+          <p class="rotulo">Escolha a sua</p>
+          <h2 class="disp">Cinco ofertas.<br />Uma Ultra Black.</h2>
+          <p class="sub">Cada oferta tem a própria cor, o próprio prazo e o próprio conjunto de ganhos. Toque para ver os detalhes.</p>
+          <div class="indice">
+            <a class="oferta-card" href="#presencial" style="--cor: var(--c1)">
+              <span class="num">1<small>BLACK</small></span>
+              <span>
+                <span class="nome">Formação em Pilates Presencial</span>
+                <span class="ganho">Desconto + condição especial + <em>9 cursos de bônus</em></span>
+                <span class="prazo">Até 11/11 · concorre ao kit de equipamentos</span>
+              </span>
+            </a>
+            <a class="oferta-card" href="#online" style="--cor: var(--c2)">
+              <span class="num">2<small>BLACK</small></span>
+              <span>
+                <span class="nome">Formação em Pilates Online</span>
+                <span class="ganho"><em>R$ 700 off</em> + 28 cursos online</span>
+                <span class="prazo">19/10 a 30/11 · concorre a 10 vagas na presencial</span>
+              </span>
+            </a>
+            <a class="oferta-card" href="#classico" style="--cor: var(--c3)">
+              <span class="num">3<small>BLACK</small></span>
+              <span>
+                <span class="nome">Formação de Pilates Clássico Presencial</span>
+                <span class="ganho"><em>R$ 700 off</em> + mentoria com Rodrigo Nanô</span>
+                <span class="prazo">Até 11/11</span>
+              </span>
+            </a>
+            <a class="oferta-card" href="#vollplus" style="--cor: var(--c4)">
+              <span class="num">4<small>BLACK</small></span>
+              <span>
+                <span class="nome">VOLL+ · 30 cursos online</span>
+                <span class="ganho" data-fases="antecipa">Preço revelado em <em>03/11</em></span>
+                <span class="ganho" data-fases="maratona live pos">30 cursos por <em>R$ 109/mês</em></span>
+                <span class="prazo">A partir de 03/11 · Maratona do Pilates</span>
+              </span>
+            </a>
+            <a class="oferta-card" href="#franquias" style="--cor: var(--c5)">
+              <span class="num">5<small>BLACK</small></span>
+              <span>
+                <span class="nome">Franquias VOLL</span>
+                <span class="ganho"><em>50% off</em> na taxa de franquia</span>
+                <span class="prazo">19/10 a 30/11 · abra o seu Studio VOLL</span>
+              </span>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- VOLL+ -->
-      <section id="vollplus" class="sec sec--alt sec--fundo prod-vollplus">
+      <!-- BLACK 1 · PRESENCIAL -->
+      <section class="sec oferta" id="presencial" style="--cor: var(--c1)">
+        <div class="wrap">
+          <img class="prod-logo" src="assets/images/logo_formacao_presencial.webp" width="480" height="268" loading="lazy" alt="Curso de Formação Completa em Pilates Presencial" />
+          <div class="cabeca"><span class="selo">Black 1</span><span class="prazo-g">Até 11/11</span></div>
+          <p class="nome">Formação em Pilates Presencial</p>
+          <h2 class="disp">Forme-se em Pilates <em>na prática.</em></h2>
+          <p class="lead">Uma formação em mais de 140 cidades do Brasil, em apenas 4 dias (2 finais de semana), para quem quer clareza, segurança e consistência no uso do Método Pilates.</p>
+          <div class="g2">
+            <div class="foto">
+              <img src="assets/images/formacao_presencial_ultra_black_voll.webp" width="1000" height="1250" loading="lazy" alt="Turma da Formação em Pilates Presencial VOLL segurando o livro Teoria e Prática" />
+            </div>
+            <div>
+              <div class="leva">
+                <div class="topo"><span class="rotulo">Na Black 1 você leva</span><span class="prazo-g">até 11/11</span></div>
+                <ul>
+                  <li><i>+</i><div><p class="t">Desconto exclusivo Ultra Black</p><p class="d">O valor muda conforme a forma de pagamento. A consultora mostra a sua condição na hora.</p></div></li>
+                  <li><i>+</i><div><p class="t">Condição especial de pagamento</p><p class="d">Parcelamento facilitado só durante a campanha.</p></div></li>
+                  <li><i>+</i><div><p class="t">Combo com 9 cursos online de bônus</p><p class="d">Combo VOLL Fisioterapia ou Combo VOLL Educação Física, à sua escolha. Mais de 270 horas de certificado.</p></div></li>
+                </ul>
+                <div class="total"><i>★</i><div><p class="t">E ainda concorre ao kit de equipamentos Equipilates</p><p class="d">Reformer, Cadillac, Chair e Ladder Barrel. Quase R$ 30 mil em aparelhos. Compras de 01/10 a 30/12, sorteio em janeiro de 2027.</p></div></div>
+              </div>
+              <details style="margin-top: 12px">
+                <summary>Os 9 cursos do Combo VOLL Fisioterapia</summary>
+                <div class="corpo">
+                  <ul class="lista">
+                    <li><span><b>Avaliação Postural</b> com tópicos de Terapia Manual · 7 h</span></li>
+                    <li><span><b>Cinesioterapia no Câncer de Mama</b> · 8 h</span></li>
+                    <li><span><b>Fisioterapia Respiratória na Hemodiálise</b> · 5 h</span></li>
+                    <li><span><b>Treinamento Muscular Respiratório</b> · 4 h</span></li>
+                    <li><span><b>Kettlebell 360º</b>, do esporte à reabilitação · 9 h</span></li>
+                    <li><span><b>Mobilização Neural</b> · 12 h</span></li>
+                    <li><span><b>Coluna Vertebral</b>, dores e disfunções · 52 h</span></li>
+                    <li><span><b>Avaliação Completa</b>, todos os tipos de avaliação · 62 h</span></li>
+                    <li><span><b>Especialista em Quadril</b> · 115 h</span></li>
+                  </ul>
+                  <!-- TEXTO-PENDENTE: lista dos 9 cursos do Combo VOLL Educação Física -->
+                </div>
+              </details>
+            </div>
+          </div>
+          <a class="btn btn--cor" href="https://www.espacovidapilates.com.br" target="_blank" rel="noopener noreferrer">Quero a Black 1 · Formação Presencial →</a>
+        </div>
+      </section>
+
+      <!-- BLACK 2 · ONLINE -->
+      <section class="sec oferta" id="online" style="--cor: var(--c2)">
+        <div class="wrap">
+          <img class="prod-logo prod-logo--placa" src="assets/images/logo_formacao_online.webp" width="480" height="192" loading="lazy" alt="Formação Online Completa em Pilates VOLL" />
+          <div class="cabeca"><span class="selo">Black 2</span><span class="prazo-g">19/10 a 30/11</span></div>
+          <p class="nome">Formação em Pilates Online</p>
+          <h2 class="disp">Sua formação em Pilates, <em>no seu ritmo.</em></h2>
+          <p class="lead">A mesma base da VOLL, para estudar de onde estiver, com R$ 700 de desconto e 28 cursos de bônus.</p>
+          <div class="g2">
+            <div>
+              <div class="preco-box">
+                <span class="de">de <s>R$ 1.790</s> por</span>
+                <span class="por">R$ 1.090</span>
+                <div class="cond">
+                  <span class="tag tag--cor">R$ 700 de desconto</span>
+                  <!-- TEXTO-PENDENTE: condição de parcelamento (<span class="tag">Parcelamento: ...</span>) -->
+                </div>
+              </div>
+              <div class="leva" style="margin-top: 12px">
+                <div class="topo"><span class="rotulo">Na Black 2 você leva</span><span class="prazo-g">até 30/11</span></div>
+                <ul>
+                  <li><i>+</i><div><p class="t">R$ 700 de desconto</p><p class="d">A Formação Online inteira por R$ 1.090.</p></div></li>
+                  <li><i>+</i><div><p class="t">28 cursos online de bônus</p><p class="d">Para aprofundar em patologias, grupos especiais, gestão e muito mais.</p></div></li>
+                </ul>
+                <div class="total"><i>★</i><div><p class="t">E ainda concorre a 1 de 10 vagas na Formação Presencial + kit de acessórios</p><p class="d">Sorteio exclusivo para quem comprar a Formação Online de 01/10 a 30/11. Sorteio em dezembro.</p></div></div>
+              </div>
+            </div>
+            <div class="foto foto--3x2">
+              <img src="assets/images/formacao_online_ultra_black_voll.webp" width="1200" height="800" loading="lazy" alt="Aluna anotando enquanto assiste a uma aula da Formação em Pilates Online VOLL no notebook" />
+            </div>
+          </div>
+          <a class="btn btn--cor" href="https://cursodepilatesonline.com.br" target="_blank" rel="noopener noreferrer">Quero a Black 2 · Formação Online →</a>
+        </div>
+      </section>
+
+      <!-- BLACK 3 · CLÁSSICO -->
+      <section class="sec oferta" id="classico" style="--cor: var(--c3)">
+        <div class="wrap">
+          <img class="prod-logo prod-logo--alto" src="assets/images/logo_formacao_classico.webp" width="360" height="320" loading="lazy" alt="Pilates Clássico VOLL e Rodrigo Nanô" />
+          <div class="cabeca"><span class="selo">Black 3</span><span class="prazo-g">Até 11/11</span></div>
+          <p class="nome">Formação de Pilates Clássico Presencial</p>
+          <h2 class="disp">Domine o Método Clássico <em>na origem.</em></h2>
+          <p class="lead">Formação presencial no Método Clássico com Rodrigo Nanô: 3 dias de prática e certificado de 20 horas (MEC, CREF e CREFITO).</p>
+          <div class="foto foto--larga">
+            <img src="assets/images/formacao_classico_ultra_black_voll.webp" width="1600" height="518" loading="lazy" alt="Rodrigo Nanô e o conselho de especialistas da Formação de Pilates Clássico Presencial" />
+          </div>
+          <div class="g2">
+            <div class="preco-box">
+              <span class="de">condição Ultra Black à vista</span>
+              <span class="por">R$ 700 <small>OFF</small></span>
+              <div class="cond"><span class="tag tag--cor">12x de R$ 199 no cartão</span><span class="tag">ou boleto: entrada R$ 100 + 12x R$ 199</span></div>
+            </div>
+            <div class="leva">
+              <div class="topo"><span class="rotulo">Na Black 3 você leva</span><span class="prazo-g">até 11/11</span></div>
+              <ul>
+                <li><i>+</i><div><p class="t">R$ 700 de desconto à vista</p><p class="d">Ou parcelado em 12x de R$ 199.</p></div></li>
+                <li><i>+</i><div><p class="t">Gravação do workshop + PDF teórico</p><p class="d">“Adaptação de aparelhos contemporâneos ao Método Clássico”.</p></div></li>
+                <li><i>+</i><div><p class="t">Mentoria com Rodrigo Nanô</p><p class="d">Só para quem garantir até 11/11.</p></div></li>
+                <li><i>+</i><div><p class="t">10 banners do Rodrigo Nanô</p><p class="d">Apenas para os 10 primeiros compradores.</p></div></li>
+              </ul>
+              <div class="total"><i>★</i><div><p class="t">E ainda concorre aos prêmios da live de 11/11</p><p class="d">R$ 7 mil em PIX, uma Pós Graduação e um Evento VOLL 2027.</p></div></div>
+            </div>
+          </div>
+          <a class="btn btn--cor" href="https://cursopilatesclassico.com.br" target="_blank" rel="noopener noreferrer">Quero a Black 3 · Pilates Clássico →</a>
+        </div>
+      </section>
+
+      <!-- BLACK 4 · VOLL+ -->
+      <section class="sec oferta" id="vollplus" style="--cor: var(--c4)">
         <div class="wrap">
           <img class="prod-logo" src="assets/images/logo_vollplus.webp" width="480" height="114" loading="lazy" alt="VOLL+" />
-          <p class="cond">VOLL+ · Maratona do Pilates</p>
-          <h2 class="disp h2 h2--largo">Estude Pilates o ano todo <span class="ouro">por menos.</span></h2>
+          <div class="cabeca"><span class="selo">Black 4</span><span class="prazo-g">A partir de 03/11</span></div>
+          <p class="nome">VOLL+ · a assinatura de cursos da VOLL</p>
+          <h2 class="disp">30 cursos online. <em>Um valor só.</em></h2>
+          <p class="lead">Mais de 30 cursos da VOLL dentro de uma assinatura: gestantes, idosos, patologias, mat com acessórios, marketing, empreendedorismo e novidades entrando o ano todo.</p>
+          <p class="rotulo">O que você aprende</p>
+          <ul class="temas">
+            <li>Pilates para gestantes</li>
+            <li>Patologias</li>
+            <li>Marketing digital</li>
+            <li>Bola suíça</li>
+            <li>Empreendedorismo</li>
+            <li>Comandos verbais</li>
+            <li>Fidelização de clientes</li>
+            <li>Sequências evolutivas</li>
+            <li>Mat com acessórios</li>
+            <li>Aulas mais envolventes</li>
+            <li>Pilates para idosos</li>
+            <li>Construção de movimentos</li>
+          </ul>
 
           <!-- Antecipa: teaser, sem preço -->
-          <div class="card card--ouro card--centro mt-48" data-fases="antecipa">
-            <p class="cond">Em breve</p>
-            <p class="disp teaser">A oferta do VOLL+ será revelada em <span class="ouro">03/11</span></p>
-            <p class="lead teaser-texto">Ela abre junto com a Maratona do Pilates. Inscreva-se na Maratona para ser o primeiro a saber.</p>
-            <div class="cta-row cta-row--centro" style="margin-top: 32px">
-              <a class="btn" href="https://vollpilates.com.br/maratona-do-pilates/" target="_blank" rel="noopener noreferrer">Quero participar da Maratona</a>
-            </div>
+          <div class="preco-box preco-box--centro" data-fases="antecipa">
+            <span class="rotulo">A oferta do VOLL+ abre em</span>
+            <span class="por">03/11</span>
+            <span class="sub">Junto com a Maratona do Pilates. Quem está inscrito na Maratona fica sabendo primeiro.</span>
+            <a class="btn btn--cor" style="margin-top: 12px" href="https://vollpilates.com.br/maratona-do-pilates/" target="_blank" rel="noopener noreferrer">Quero participar da Maratona →</a>
           </div>
 
           <!-- Maratona em diante: oferta no ar -->
           <div data-fases="maratona live pos">
-            <div class="g2s mt-48">
-              <div class="card card--ouro" style="padding: 36px">
-                <div class="card__topo">
-                  <h3 class="cond cond--p">Plano anual</h3>
-                  <span class="selo" data-fases="maratona live">+ 1 ano extra</span>
-                </div>
-                <p class="de-por de-por--mt">de <s>R$ 149/mês</s> por</p>
-                <p class="disp preco preco--m">R$ 109<small>/mês</small></p>
+            <div class="g2s">
+              <div class="preco-box">
+                <span class="rotulo">Plano anual</span>
+                <span class="de">de <s>R$ 149/mês</s> por</span>
+                <span class="por">R$ 109<small>/mês</small></span>
+                <div class="cond"><span class="tag tag--cor" data-fases="maratona live">+ 1 ano extra de presente</span></div>
               </div>
-              <div class="card" style="padding: 36px">
-                <h3 class="cond cond--p cond--cinza">Plano recorrente</h3>
-                <p class="de-por de-por--mt">de <s>R$ 179/mês</s> por</p>
-                <p class="disp preco preco--m preco--branco">R$ 109<small>/mês</small></p>
+              <div class="preco-box preco-box--neutra">
+                <span class="rotulo">Plano recorrente</span>
+                <span class="de">de <s>R$ 179/mês</s> por</span>
+                <span class="por">R$ 109<small>/mês</small></span>
               </div>
             </div>
-            <!-- Bônus exclusivos da Maratona (03/11 a 11/11) -->
-            <div class="card card--g mt-20" data-fases="maratona live">
-              <div class="card__topo">
-                <p class="forte" style="font-size: 18px">Só durante a Maratona do Pilates</p>
-                <span class="cond cond--p">03/11 a 11/11</span>
-              </div>
-              <ul class="lista-check">
-                <li><span><b>Plano anual:</b> + 1 ano extra de presente</span></li>
+            <div class="leva" style="margin-top: 12px" data-fases="maratona live">
+              <div class="topo"><span class="rotulo">Só durante a Maratona</span><span class="prazo-g">03/11 a 11/11</span></div>
+              <ul>
+                <li><i>+</i><div><p class="t">Plano anual: 1 ano extra de presente</p></div></li>
                 <!-- TEXTO-PENDENTE: incluir o prêmio do sorteio de domingo quando for definido -->
-                <li><span><b>Plano anual:</b> sorteio no domingo</span></li>
-                <li><span><b>100 primeiros:</b> 2 livros da Coletânea Pilates + kit VOLL (sacochila, caderno e caneta)</span></li>
+                <li><i>+</i><div><p class="t">Plano anual: sorteio no domingo</p></div></li>
+                <li><i>+</i><div><p class="t">100 primeiros: 2 livros da Coletânea Pilates + kit VOLL</p><p class="d">Sacochila, caderno e caneta.</p></div></li>
               </ul>
             </div>
-            <p class="nota" style="margin-top: 14px" data-fases="maratona live">De 12/11 a 30/11 o preço de R$ 109/mês continua, sem os bônus da Maratona.</p>
-            <p class="nota" style="margin-top: 14px" data-fases="pos">Preço de R$ 109/mês válido até 30/11.</p>
-            <div class="cta-row cta-row--centro">
-              <a class="btn" href="https://vollplus.com.br/" target="_blank" rel="noopener noreferrer"
-                >Saiba mais sobre o VOLL+
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg
-              ></a>
-            </div>
+            <p class="nota" style="margin-top: 12px" data-fases="maratona live">De 12/11 a 30/11 o valor de R$ 109/mês continua, sem os bônus da Maratona.</p>
+            <p class="nota" style="margin-top: 12px" data-fases="pos">Valor de R$ 109/mês válido até 30/11.</p>
+            <a class="btn btn--cor" style="margin-top: 18px" href="https://vollplus.com.br/" target="_blank" rel="noopener noreferrer">Quero a Black 4 · VOLL+ →</a>
           </div>
         </div>
       </section>
 
-      <!-- FRANQUIAS -->
-      <section id="franquias" class="sec sec--fundo prod-franquias">
-                <div class="wrap">
-          <div class="g2">
-            <div>
-              <img class="prod-logo prod-logo--placa" src="assets/images/logo_franquias.webp" width="480" height="130" loading="lazy" alt="VOLL Pilates Studios" />
-              <p class="cond">Franquias VOLL · 19/10 a 30/11</p>
-              <h2 class="disp h2">Abra seu Studio VOLL com <span class="ouro">metade do preço.</span></h2>
-              <p class="lead lead--mt">Condição Ultra Black para quem quer abrir uma unidade nova ou migrar o próprio Studio para a rede VOLL.</p>
+      <!-- BLACK 5 · FRANQUIAS -->
+      <section class="sec oferta" id="franquias" style="--cor: var(--c5)">
+        <div class="wrap">
+          <img class="prod-logo prod-logo--placa" src="assets/images/logo_franquias.webp" width="480" height="130" loading="lazy" alt="VOLL Pilates Studios" />
+          <div class="cabeca"><span class="selo">Black 5</span><span class="prazo-g">19/10 a 30/11</span></div>
+          <p class="nome">Franquias VOLL</p>
+          <h2 class="disp">Abra o seu Studio VOLL <em>pagando metade.</em></h2>
+          <p class="lead">A rede de Studios da maior escola de Pilates do Brasil, com marca, método, treinamento e suporte de gestão. Na Ultra Black, a taxa de franquia cai pela metade. Isso não acontece em nenhuma outra época do ano.</p>
+          <div class="g2s">
+            <div class="preco-box">
+              <span class="rotulo">Unidade nova</span>
+              <span class="de">taxa de franquia de <s>R$ 35.990</s> por</span>
+              <span class="por">R$ 17.995</span>
+              <div class="cond"><span class="tag tag--cor">50% de desconto</span></div>
             </div>
-            <div class="g2s">
-              <div class="card card--ouro card--g card--col">
-                <h3 class="cond cond--p">Unidade nova</h3>
-                <span class="disp preco preco--curto">50%</span>
-                <span style="font-size: 15px; color: var(--texto-2)">de desconto</span>
-                <span class="de-por de-por--mt">de <s>R$ 35.990</s> por</span>
-                <span class="disp preco-menor preco-menor--colado">R$ 17.995</span>
-              </div>
-              <div class="card card--g card--col">
-                <h3 class="cond cond--p cond--cinza">Migração</h3>
-                <span style="color: var(--texto-2); margin-top: 10px">Já tem Studio? Traga para a rede VOLL com condição especial.</span>
-                <span class="disp preco-menor">R$ 9.990</span>
-              </div>
+            <div class="preco-box preco-box--neutra">
+              <span class="rotulo">Já tem Studio? Migre para a rede</span>
+              <span class="de">condição especial de migração</span>
+              <span class="por">R$ 9.990</span>
+              <div class="cond"><span class="tag">Traga o seu Studio para a VOLL</span></div>
             </div>
           </div>
-          <div class="cta-row cta-row--centro" style="margin-top: 48px">
-            <a class="btn" href="https://franquiadepilates.com.br" target="_blank" rel="noopener noreferrer"
-              >Saiba mais sobre a Franquia VOLL
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg
-            ></a>
+          <div class="leva">
+            <div class="topo"><span class="rotulo">Na Black 5 você leva</span><span class="prazo-g">até 30/11</span></div>
+            <ul>
+              <li><i>+</i><div><p class="t">50% de desconto na taxa de franquia</p><p class="d">R$ 17.995 em vez de R$ 35.990 para abrir uma unidade nova.</p></div></li>
+              <li><i>+</i><div><p class="t">A marca, o método e o suporte da VOLL</p><p class="d">Implantação, treinamento da equipe e acompanhamento de gestão.</p></div></li>
+            </ul>
+            <div class="total"><i>★</i><div><p class="t">E ainda concorre aos prêmios da live de 11/11</p><p class="d">R$ 7 mil em PIX, uma Pós Graduação e um Evento VOLL 2027.</p></div></div>
           </div>
+          <a class="btn btn--cor" href="https://franquiadepilates.com.br" target="_blank" rel="noopener noreferrer">Quero a Black 5 · abrir meu Studio VOLL →</a>
+        </div>
+      </section>
+
+      <!-- PRÊMIOS -->
+      <section class="sec premios" id="sorteios">
+        <div class="wrap">
+          <p class="rotulo">Prêmios da Ultra Black</p>
+          <h2 class="disp">Comprou na Ultra Black, <span class="ouro">concorre.</span></h2>
+          <p class="sub">Além do que cada oferta já entrega, quem compra qualquer produto participante entra nos sorteios. Alguns produtos dão mais cupons e mais chances.</p>
+
+          <div class="premio" style="--cor: var(--c1)">
+            <div class="corpo">
+              <span class="para">Para quem compra a Black 1 · Presencial</span>
+              <p class="valor">Um Studio completo de presente</p>
+              <p class="sub">Kit de equipamentos Equipilates, quase R$ 30 mil em aparelhos: Reformer, Cadillac, Chair e Ladder Barrel. Compras de 01/10 a 30/12/2026, sorteio em janeiro de 2027.</p>
+            </div>
+          </div>
+
+          <div class="premio" style="--cor: var(--c2)">
+            <div class="corpo">
+              <span class="para">Para quem compra a Black 2 · Online</span>
+              <p class="valor">10 vagas na Formação Presencial</p>
+              <p class="sub">Dez alunos da Formação Online ganham a Formação Presencial completa mais um kit de acessórios. Compras de 01/10 a 30/11, sorteio em dezembro.</p>
+            </div>
+          </div>
+
+          <div class="premio" style="--cor: var(--ouro)">
+            <div class="corpo">
+              <span class="para">Para quem compra qualquer oferta até 11/11</span>
+              <p class="valor">R$ 7 mil em PIX ao vivo</p>
+              <p class="sub">Sorteados na Live Última Chamada, quarta 11/11 às 20h, no YouTube da VOLL.</p>
+              <ul class="selos-premios">
+                <li><img src="assets/images/selo_pix_5mil.webp" width="367" height="365" loading="lazy" alt="1 PIX de R$ 5 mil" /></li>
+                <li><img src="assets/images/selo_pix_1mil.webp" width="336" height="331" loading="lazy" alt="2 PIX de R$ 1 mil" /></li>
+                <li><img src="assets/images/selo_pos_graduacao.webp" width="330" height="328" loading="lazy" alt="1 Pós-Graduação VOLL em Pilates para Patologias e Biomecânica Aplicada" /></li>
+                <li><img src="assets/images/selo_evento_voll_2027.webp" width="387" height="280" loading="lazy" alt="1 Evento VOLL 2027" /></li>
+              </ul>
+              <p class="nota">O Evento VOLL 2027 é à escolha do ganhador.</p>
+            </div>
+          </div>
+          <p class="nota">Consulte o <a href="https://www.espacovidapilates.com.br/regulamento" target="_blank" rel="noopener noreferrer">regulamento dos sorteios</a>.</p>
         </div>
       </section>
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="rodape">
+    <footer>
       <div class="wrap">
-        <div>
-          <img class="rodape__logo" src="assets/images/logo_ultra_black_voll.svg" width="1126" height="610" loading="lazy" alt="Ultra Black VOLL Pilates Group" />
-          <p class="nota">Ultra Black VOLL · ofertas válidas nos períodos indicados em cada produto.</p>
-        </div>
-        <div class="rodape__links">
-          <a class="link" href="https://www.espacovidapilates.com.br/regulamento" target="_blank" rel="noopener noreferrer">Regulamento dos sorteios</a>
-          <a class="link" href="https://vollpilates.com.br/" target="_blank" rel="noopener noreferrer">vollpilates.com.br</a>
-<a class="link" href="https://www.youtube.com/watch?v=LtufBHAe5Gs" target="_blank" rel="noopener noreferrer">Live no YouTube</a>
+        <img class="logo-ub" src="assets/images/logo_ultra_black_voll.svg" width="1126" height="610" loading="lazy" alt="Ultra Black VOLL Pilates Group" />
+        <p class="nota">Ultra Black VOLL 2026 · ofertas válidas nos períodos indicados em cada oferta.</p>
+        <div class="links">
+          <a href="https://www.espacovidapilates.com.br/regulamento" target="_blank" rel="noopener noreferrer">Regulamento dos sorteios</a>
+          <a href="https://vollpilates.com.br/" target="_blank" rel="noopener noreferrer">vollpilates.com.br</a>
+          <a href="https://www.youtube.com/watch?v=LtufBHAe5Gs" target="_blank" rel="noopener noreferrer">Live no YouTube</a>
         </div>
       </div>
     </footer>
+
+    <div class="cta-fixo"><a class="btn" href="#ofertas">Ver as 5 ofertas</a></div>
   </body>
 </html>

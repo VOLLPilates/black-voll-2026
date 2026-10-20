@@ -1,6 +1,16 @@
 # Ultra Black VOLL 2026
 
-Página única da campanha Ultra Black VOLL (13/10 a 30/11/2026), em HTML, CSS e JS puros, feita a partir do wireframe "Página Ultra Black VOLL — Wireframe".
+Página única da campanha Ultra Black VOLL (13/10 a 30/11/2026), em HTML, CSS e JS puros. Desde 20/10/2026 segue o wireframe "Ultra Black VOLL 2026" (estrutura e visual), com a seção da live movida para logo abaixo do topo. A versão anterior está em `bkp_20-10-2026/`.
+
+## Ordem da página
+
+1. Barra dourada e chips de navegação (um bloco fixo no topo)
+2. Topo "Já começou"
+3. Live (`#live`): cronômetro, passos, thumb da live com play e botão do YouTube
+4. Índice das 5 ofertas (`#ofertas`)
+5. Black 1 a 5: `#presencial`, `#online`, `#classico`, `#vollplus`, `#franquias` (ids antigos mantidos para não quebrar links)
+6. Prêmios (`#sorteios`)
+7. Rodapé e botão fixo "Ver as 5 ofertas" (só no celular)
 
 ## Estrutura
 
@@ -13,7 +23,7 @@ Todos os caminhos são relativos, então a página funciona em qualquer subpasta
 
 ## Live
 
-Vídeo: https://www.youtube.com/watch?v=LtufBHAe5Gs (`videoId` em `assets/js/main.js`). Antes da live, o card com o cronômetro e a thumb com play ficam lado a lado na segunda seção (empilhados no celular); no dia da live, a thumb ocupa o topo. O mesmo link está no botão "Ativar lembrete da live", no rodapé e no JSON-LD.
+Vídeo: https://www.youtube.com/watch?v=LtufBHAe5Gs (`videoId` em `assets/js/main.js`). A seção da live é a segunda da página em todas as fases: thumb com play (o YouTube só carrega no clique) e um botão para o mesmo link, com texto por fase ("Ativar lembrete da live", "Assistir agora", "Ver a gravação"). O mesmo link está no rodapé e no JSON-LD.
 
 ## Tags
 
@@ -21,11 +31,9 @@ GTM (GTM-MH7D35D), GA4 (G-9S2K7N5XCL) e os dois Meta Pixels do domínio vollpila
 
 ## Cores
 
-- Botões: `#00c3ba`, em caixa alta.
-- Faixa da live: fixa no topo, fundo `#ff4b4b` e texto preto.
-- Dourado (`--dourado`): títulos, para ligar todos os produtos à Ultra Black.
-- Cada produto tem a sua cor de destaque (`.prod-*` no CSS). Pilates Clássico: verde (#2e8a6c), da identidade do curso.
-- Logos oficiais acima do rótulo de cada produto (`.prod-logo`). Os da Formação Online e de Franquias têm texto escuro e ficam sobre uma placa branca (`.prod-logo--placa`).
+- Do wireframe: dourado `--ouro` (#d9b66c) na barra, títulos e botões gerais; cada oferta tem a sua cor (`--c1` a `--c5` no `:root`), usada no selo Black, nos destaques e no botão da oferta.
+- Logos oficiais no alto de cada oferta (`.prod-logo`). Os da Formação Online e de Franquias ficam sobre uma placa branca (`.prod-logo--placa`).
+- Imagens do wireframe que não temos ficaram de fora: mosaico e capas de cursos do VOLL+, fotos dos equipamentos Equipilates e foto de Studio das Franquias.
 
 ## Fases
 
@@ -33,10 +41,10 @@ A página troca sozinha, pelo horário de Brasília:
 
 | Fase | Período | O que muda |
 |---|---|---|
-| `antecipa` | até 02/11 | Topo com contador; VOLL+ como teaser, sem preço |
+| `antecipa` | até 02/11 | Cronômetro na seção da live; VOLL+ como teaser, sem preço |
 | `maratona` | 03/11 a 10/11 | Oferta do VOLL+ no ar, com os bônus da Maratona |
-| `live` | 11/11 | Topo vira a thumb da live com play (o YouTube só carrega no clique); às 20h a barra passa a "AO VIVO AGORA" |
-| `pos` | 12/11 em diante | Player vira a gravação; seção de sorteios e bônus da Maratona somem |
+| `live` | 11/11 | Barra e tags "Hoje às 20h"; às 20h passam a "Ao vivo agora" e o botão vira "Assistir agora" |
+| `pos` | 12/11 em diante | Tag "Gravação da live", botão "Ver a gravação", sem cronômetro; bônus da Maratona somem |
 
 Um bloco aparece só nas fases listadas em `data-fases="..."`. Sem esse atributo, aparece sempre.
 
@@ -52,9 +60,9 @@ Cada item está marcado no código com o comentário indicado.
 - `URL-PENDENTE`: endereço final da página, para `canonical`, `og:url` e `og:image` (bloco comentado no `<head>`). Depois de publicar, incluir a URL no sitemap do site hospedeiro.
 - Regulamento dos sorteios: o link aponta para `espacovidapilates.com.br/regulamento`, que ainda não está no ar. Todos os CTAs já têm as URLs finais e abrem em nova aba.
 - Capa de compartilhamento: `capa_seo_ultra_black_voll_2026.webp`, 1200x630.
-- `TEXTO-PENDENTE`: condição de parcelamento da Formação em Pilates Online e prêmio do sorteio de domingo do VOLL+.
-- Cores dos produtos: a Presencial usa a cor do logo oficial. Formação Online, VOLL+ e Franquias usam as cores dos sites de cada produto (bloco "Cores por produto" no CSS); trocar se o time preferir as cores dos logos.
-- Fase `pos`: o wireframe não define a página depois da live. O comportamento atual é uma proposta e precisa de aprovação. A seção da Formação em Pilates Presencial continua visível com "até 11/11".
+- `TEXTO-PENDENTE`: condição de parcelamento da Formação em Pilates Online, prêmio do sorteio de domingo do VOLL+ e lista dos 9 cursos do Combo VOLL Educação Física.
+- Fase `pos`: o comportamento depois da live segue o wireframe, mas ainda precisa de aprovação.
+- `bkp_20-10-2026/`: backup da versão anterior. Se não deve ir para o GitHub nem para o servidor, incluir no `.gitignore`.
 
 ## Imagens que ainda não estão em WebP
 

@@ -9,3 +9,6 @@
 temporario/
 *.psd
 *.ai
+
+# Backup local da versão anterior do site (não publicar)
+bkp_20-10-2026/

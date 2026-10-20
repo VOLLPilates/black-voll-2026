@@ -87,9 +87,30 @@ var CONFIG = {
     player();
   }
 
+  // Chip da barra de navegação acende conforme a seção visível.
+  function chipsAtivos() {
+    if (!("IntersectionObserver" in window)) return;
+    var chips = document.querySelectorAll(".chip");
+    var obs = new IntersectionObserver(
+      function (entradas) {
+        entradas.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          chips.forEach(function (c) {
+            c.classList.toggle("ativo", c.getAttribute("href") === "#" + en.target.id);
+          });
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+    document.querySelectorAll(".oferta, #sorteios").forEach(function (s) {
+      obs.observe(s);
+    });
+  }
+
   aplicar();
   document.addEventListener("DOMContentLoaded", function () {
     atualizar();
+    chipsAtivos();
     setInterval(atualizar, 30000);
   });
 })();
