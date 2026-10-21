@@ -62,7 +62,7 @@ Cada item está marcado no código com o comentário indicado.
 - Capa de compartilhamento: `capa_seo_ultra_black_voll_2026.webp`, 1200x630.
 - `TEXTO-PENDENTE`: condição de parcelamento da Formação em Pilates Online, prêmio do sorteio de domingo do VOLL+ e lista dos 9 cursos do Combo VOLL Educação Física.
 - Fase `pos`: o comportamento depois da live segue o wireframe, mas ainda precisa de aprovação.
-- `bkp_20-10-2026/`: backup da versão anterior. Se não deve ir para o GitHub nem para o servidor, incluir no `.gitignore`.
+- `bkp_20-10-2026/`: backup local da versão anterior, ignorado pelo git (não vai para o GitHub nem para o servidor).
 
 ## Imagens que ainda não estão em WebP
 

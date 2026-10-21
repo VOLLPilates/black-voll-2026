@@ -12,3 +12,6 @@ temporario/
 
 # Backup local da versão anterior do site (não publicar)
 bkp_20-10-2026/
+
+# Grafo gerado pelo graphify (local)
+graphify-out/
